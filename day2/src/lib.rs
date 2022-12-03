@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
 pub fn a(input: &str) -> i32 {
-    let legend: HashMap<String, [i32; 2]> = HashMap::from([
+    let legend = HashMap::from([
         ("BZ".to_string(), [2, 9]),
         ("AY".to_string(), [1, 8]),
         ("CX".to_string(), [3, 7]),
@@ -13,14 +13,24 @@ pub fn a(input: &str) -> i32 {
         ("BX".to_string(), [8, 1]),
     ]);
 
-    let mut score = 0;
+    input
+        .lines()
+        .map(|line| {
+            legend[&line
+                .chars()
+                .filter(|c| !c.is_whitespace())
+                .collect::<String>()][1]
+        })
+        .sum()
 
-    for line in input.lines() {
-        let key: String = line.chars().filter(|c| !c.is_whitespace()).collect();
-        score += legend[&key][1];
-    }
+    // let mut score = 0;
 
-    score
+    // for line in input.lines() {
+    //     let key: String = line.chars().filter(|c| !c.is_whitespace()).collect();
+    //     score += legend[&key][1];
+    // }
+
+    // score
 }
 
 pub fn b(input: &str) -> i32 {
@@ -36,14 +46,24 @@ pub fn b(input: &str) -> i32 {
         ("BX".to_string(), [8, 1]),
     ]);
 
-    let mut score = 0;
+    input
+        .lines()
+        .map(|line| {
+            legend[&line
+                .chars()
+                .filter(|c| !c.is_whitespace())
+                .collect::<String>()][1]
+        })
+        .sum()
 
-    for line in input.lines() {
-        let key: String = line.chars().filter(|c| !c.is_whitespace()).collect();
-        score += legend[&key][1];
-    }
+    // let mut score = 0;
 
-    score
+    // for line in input.lines() {
+    //     let key: String = line.chars().filter(|c| !c.is_whitespace()).collect();
+    //     score += legend[&key][1];
+    // }
+
+    // score
 }
 
 // let score_legend = {
